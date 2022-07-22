@@ -216,7 +216,7 @@
             board1 = ChessBoard("board1", { draggable: true, position: position });
 
           }
-          
+
           function editGame() {          
             position = board1.fen();
             board1 = ChessBoard("board1", {
@@ -225,6 +225,7 @@
               position: position,
               sparePieces: true,
             });
+            location.reload()
 
           }
 
