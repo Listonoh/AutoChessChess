@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chess</title>
+  <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="js/chessboard-1.0.0.min.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      background-color: #1d1d1d;
+      color: white;
+      display: flex;
+    }
+
+    .full-height {
+      height: 100%;
+      background: #1d1d1d;
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      height: 100%;
+      background-color: #1d1d1d;
+      color: white;
+    }
+
+    .board {
+      background-color: lightslategray;
+    }
+  </style>
+</head>
+<script>
+  let position = "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R";
+</script>
+
+<body>
+  <div class="text-center full-height">
+    <div class="row content">
+      <div class="col-sm-8 text-left" style="width: 600px">
+        <h1>Autochess Čenkovice 2022</h1>
+        <div id="board" class="board">
+          <div id="board1" style="width: 100%"></div>
+          <button id="setStartBtn">Start Board</button>
+          <button id="clearBtn">Clear Board</button>
+          <button id="logBtn">Log Board</button>
+          <button id="loadFENBtn">Load Position</button>
+          <button id="saveFENBtn">Save Position</button>
+          <script>
+            var config = {
+              draggable: true,
+              dropOffBoard: 'snapback', // this is the default
+              sparePieces: true
+
+            }
+            var board1 = ChessBoard('board1', config);
+            $('#clearBtn').on('click', board1.clear);
+            $('#logBtn').on('click', clickShowPositionBtn);
+            $('#setStartBtn').on('click', board1.start)
+            $('#loadFENBtn').on('click', function () {
+              board1.position(position)
+            })
+            $('#saveFENBtn').on('click', function () {
+              position = board1.fen()
+            })
+
+            function clickShowPositionBtn() {
+              console.log('Current position as a FEN string:')
+              console.log(board1.fen())
+            }
+          </script>
+        </div>
+        <hr>
+        <div class="moves">
+          <p>Moves</p>
+        </div>
+      </div>
+
+      <div class="col-sm-2 sidenav">
+        <div class="well">
+          <p>Saved Games</p>
+        </div>
+        <div class="well">
+          <p>Engine settings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
