@@ -1,6 +1,12 @@
 help:
 	echo "Usage: make [target]"
 
+venv:
+	python3 -m venv .venv
+
+install:
+	pip install -r requirements.txt
+
 build:
 	sudo docker build . -t chess 
 

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chess</title>
+  <link rel="stylesheet" href="{% static '/css/chessboard-1.0.0.css' %}">
+  <link rel="stylesheet" href="{% static '/css/base.css' %}">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="{% static '/js/chessboard-1.0.0.js' %}"></script>
+  <script src="{% static '/js/base.js' %}" defer></script>
+</head>
+
+<body>
+  <div class="text-center full-height">
+    <h1>Autochess Čenkovice 2022</h1>
+    <div class="row content">
+      <div class="col-sm-8 text-left" style="width: 588px">
+
+        <div id="board" class="board">
+          <div id="board1"></div>
+        </div>
+      </div>
+
+      <div class="col-sm-2 sidenav">
+        <div class="engines">
+          <h3>Engine settings</h3>
+          <label type="text" class="elo" id="whiteEngineLabel">White ELO: 1000</label>
+          <input type="range" class="eloSlider" id="whiteEngine" name="whiteEngine" min="700" max="2500" step="50"
+            value="1000" onchange="updateTextInput('white',this.value);">
+          <label type="text" class="elo" id="blackEngineLabel">Black ELO: 1000</label>
+          <input type="range" class="eloSlider" id="blackEngine" name="whiteEngine" min="700" max="2500" step="50"
+            value="1000" onchange="updateTextInput('black',this.value);">
+        </div>
+        <div class="flex-container">
+          <button class="button" id="setStartBtn">Start Board</button>
+          <button class="button" id="clearBtn">Clear Board</button>
+          <button class="button" id="logBtn">Log Board</button>
+          <button class="button" id="loadFENBtn">Load Position</button>
+          <button class="button" id="saveFENBtn">Save Position</button>
+          <button class="button" id="statrBTN">Start Game</button>
+          <button class="button" id="editBTN">Edit Position</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
