@@ -3,7 +3,9 @@ FROM python:3
 
 
 COPY requirements.txt .
+RUN apt-get update && apt-get dist-upgrade -y && apt clean all
 RUN pip install -r requirements.txt
+RUN apt-get install -y stockfish
 
 # install python dependencies
 # COPY pyproject.toml /tmp/pyproject.toml
@@ -21,6 +23,6 @@ RUN pip install -r requirements.txt
 ENV PYTHON=python3
 ENV PYTHONPATH=.
 ENV PYTHONUNBUFFERED=1
-
+RUN alias stockfish="/usr/games/stockfish"
 
 WORKDIR /app
