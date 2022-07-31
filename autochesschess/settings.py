@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "autochesschess",
-    "chess",
+    "chess_app",
     "rest_framework",
 ]
 
