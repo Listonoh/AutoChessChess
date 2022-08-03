@@ -27,7 +27,7 @@ services:
       # file where env variables are stored. Used as best practice so as not to expose secret keys
     # env_file:
     #   - .env # name of the env file
-    image: chess
+    # image: chess
     ports:
       - "8000:8000"
     restart: "on-failure"

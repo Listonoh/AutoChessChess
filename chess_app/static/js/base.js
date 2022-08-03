@@ -50,19 +50,31 @@ function clickShowPositionBtn() {
 }
 function updateTextInput(textID, val) {
 	if (textID == 'white') {
-		whiteStrength = fenval;
-		document.getElementById('whiteEngineLabel').innerHTML = 'White ELO: ' + val;
+		whiteStrength = val;
+		document.getElementById('whiteEngineLabel').innerHTML = 'White DEPTH: ' + val;
 	} else {
 		blackStrength = val;
-		document.getElementById('blackEngineLabel').innerHTML = 'Black ELO: ' + val;
+		document.getElementById('blackEngineLabel').innerHTML = 'Black DEPTH: ' + val;
 	}
 }
+
+function updateTimeInput(textID, val) {
+	if (textID == 'white') {
+		whiteTime = val;
+		document.getElementById('whiteEngineTimeLabel').innerHTML = 'White Time: ' + Number(val).toFixed(1);
+	} else {
+		blackTime = val;
+		document.getElementById('blackEngineTimeLabel').innerHTML = 'Black Time: ' + Number(val).toFixed(1);
+	}
+}
+
 var game_over = false;
 var counter = 0;
 
 
 function startGame() {
 	game_over = false;
+	counter = 0;
 	gameLoop();
 }
 function gameLoop(){
@@ -77,6 +89,7 @@ function gameLoop(){
 	var c = counter % 2 == 0 ? ' w' : ' b';
 	var elo = counter % 2 == 0 ? whiteStrength : blackStrength;
 	var time = counter % 2 == 0 ? whiteTime : blackTime;
+	//TODO add time and DEPTH
 	game_over = false;
 	counter++; 
 	position = board1.fen() + c;
@@ -84,6 +97,7 @@ function gameLoop(){
 		position: position,
 		Elo: elo,
 		time: time,
+		depth: elo,
 	};
 
 	console.log(data);

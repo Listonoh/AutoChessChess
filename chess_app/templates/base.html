@@ -26,19 +26,26 @@
       <div class="col-sm-2 sidenav">
         <div class="engines">
           <h3>Engine settings</h3>
-          <label type="text" class="elo" id="whiteEngineLabel">White ELO: 1000</label>
-          <input type="range" class="eloSlider" id="whiteEngine" name="whiteEngine" min="700" max="2500" step="50"
-            value="1000" onchange="updateTextInput('white',this.value);">
-          <label type="text" class="elo" id="blackEngineLabel">Black ELO: 1000</label>
-          <input type="range" class="eloSlider" id="blackEngine" name="whiteEngine" min="700" max="2500" step="50"
-            value="1000" onchange="updateTextInput('black',this.value);">
+          <label type="text" class="engineText" id="whiteEngineLabel">White DEPTH: 5</label>
+          <input type="range" class="slider" id="whiteEngine" name="whiteEngine" min="2" max="25" step="1"
+            value="5" onchange="updateTextInput('white',this.value);">
+          <label type="text" class="engineText" id="blackEngineLabel">Black DEPTH: 5</label>
+          <input type="range" class="slider" id="blackEngine" name="whiteEngine" min="2" max="25" step="1"
+            value="5" onchange="updateTextInput('black',this.value);">
+
+          <label type="text" class="engineText" id="whiteEngineTimeLabel">White Time: 1.0</label>
+          <input type="range" class="slider" id="whiteEngineTime" name="whiteEngineTime" min="0.5" max="7" step="0.5"
+            value="1" onchange="updateTimeInput('white',this.value);">
+          <label type="text" class="engineText" id="blackEngineTimeLabel">Black Time: 1.0</label>
+          <input type="range" class="slider" id="blackEngineTime" name="blackEngineTime"  min="0.5" max="7" step="0.5"
+            value="1" onchange="updateTimeInput('black',this.value);">
         </div>
         <div class="flex-container">
           <button class="button" id="setStartBtn">Start Board</button>
           <button class="button" id="clearBtn">Clear Board</button>
-          <button class="button" id="logBtn">Log Board</button>
-          <button class="button" id="loadFENBtn">Load Position</button>
-          <button class="button" id="saveFENBtn">Save Position</button>
+          <!-- <button class="button" id="logBtn">Log Board</button> -->
+          <!-- <button class="button" id="loadFENBtn">Load Position</button> -->
+          <!-- <button class="button" id="saveFENBtn">Save Position</button> -->
           <button class="button" id="statrBTN">Start Game</button>
           <button class="button" id="editBTN">Edit Position</button>
         </div>

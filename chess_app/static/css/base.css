@@ -50,13 +50,13 @@ h1 {
   background-color: lightslategray;
 }
 
-.elo {
+.engineText {
   color: white;
   display: block;
   width: 400px;
 }
 
-.eloSlider {
+.slider {
   display: block;
   width: 400px;
 }
@@ -93,6 +93,7 @@ h1 {
   touch-action: manipulation;
   width: 100%;
   will-change: transform;
+  margin-bottom: 20px;
 }
 
 .button:disabled {
@@ -114,6 +115,6 @@ h1 {
 .engines {
   margin: 25px;
 }
-.eloSlider{
+.slider{
   margin-bottom: 15px;
 }
